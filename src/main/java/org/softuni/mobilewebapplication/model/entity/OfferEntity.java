@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "offers")
 public class OfferEntity extends BaseEntity {
+    
     @Basic
     private LocalDateTime created;
 

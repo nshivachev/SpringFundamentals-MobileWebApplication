@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "model")
 public class ModelEntity extends BaseEntity {
+
     @Basic
     private Integer category;
 
@@ -25,7 +26,7 @@ public class ModelEntity extends BaseEntity {
     @Basic
     private LocalDateTime modified;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String name;
 
     @Column(name = "start_year")

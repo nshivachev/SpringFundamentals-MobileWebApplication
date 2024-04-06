@@ -16,12 +16,13 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "brands")
 public class BrandEntity extends BaseEntity {
+
     @Basic
     private LocalDateTime created;
 
     @Basic
     private LocalDateTime modified;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String name;
 }
