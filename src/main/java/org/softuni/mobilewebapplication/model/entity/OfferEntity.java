@@ -4,9 +4,14 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.softuni.mobilewebapplication.model.enums.EngineEnum;
+import org.softuni.mobilewebapplication.model.enums.TransmissionEnum;
 
 import java.math.BigDecimal;
+import java.sql.Types;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -14,15 +19,18 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "offers")
 public class OfferEntity extends BaseEntity {
-    
+
+    @JdbcTypeCode(Types.VARCHAR)
+    private UUID uuid;
+
     @Basic
     private LocalDateTime created;
 
     @Column(columnDefinition = "text")
     private String description;
 
-    @Basic
-    private Integer engine;
+    @Enumerated(EnumType.STRING)
+    private EngineEnum engine;
 
     @Column(name = "image_url")
     private String imageUrl;
@@ -36,8 +44,8 @@ public class OfferEntity extends BaseEntity {
     @Basic
     private BigDecimal price;
 
-    @Basic
-    private Integer transmission;
+    @Enumerated(EnumType.STRING)
+    private TransmissionEnum transmission;
 
     @Basic
     private Integer year;

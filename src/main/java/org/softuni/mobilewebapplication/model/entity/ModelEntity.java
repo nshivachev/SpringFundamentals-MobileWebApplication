@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.softuni.mobilewebapplication.model.enums.ModelCategoryEnum;
 
 import java.time.LocalDateTime;
 
@@ -14,8 +15,8 @@ import java.time.LocalDateTime;
 @Table(name = "model")
 public class ModelEntity extends BaseEntity {
 
-    @Basic
-    private Integer category;
+    @Enumerated(EnumType.STRING)
+    private ModelCategoryEnum category;
 
     @Basic
     private LocalDateTime created;
