@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 public class UserEntity extends BaseEntity {
 
     @Column(name = "is_active")
-    private boolean isActive;
+    private boolean active;
 
     @Basic
     private LocalDateTime created;
@@ -39,11 +39,11 @@ public class UserEntity extends BaseEntity {
     }
 
     public boolean isActive() {
-        return isActive;
+        return active;
     }
 
     public UserEntity setActive(boolean active) {
-        isActive = active;
+        this.active = active;
         return this;
     }
 
