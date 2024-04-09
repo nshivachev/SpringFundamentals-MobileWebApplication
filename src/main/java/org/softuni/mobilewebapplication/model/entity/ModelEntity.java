@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "model")
+@Table(name = "models")
 public class ModelEntity extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
