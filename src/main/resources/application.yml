@@ -1,20 +1,32 @@
 logging:
-    level:
-        blog: WARN
-        org: WARN
-        org.hibernate.SQL: DEBUG
+  level:
+    blog: WARN
+    org: WARN
+    org.hibernate.SQL: DEBUG
 spring:
-    datasource:
-        driverClassName: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://localhost:3306/mobile_web_app?createDatabaseIfNotExist=true
-        username: ${MYSQL_USER:root}
-        password: ${MYSQL_PASSWORD:12345}
-    jpa:
-        hibernate:
-            ddl-auto: update
-#            ddl-auto: create-drop
-        properties:
-            hibernate:
-                dialect: org.hibernate.dialect.MySQL8Dialect
-                format_sql: false
-                show_sql: false
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mobile_web_app?createDatabaseIfNotExist=true
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:12345}
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+  sql:
+    init:
+      mode: never #never/always/embedded
+  jpa:
+    # Choose either MySQL 8 or MySQL 5 below
+    # For MySQL 8
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    #For MySQL 5
+    #database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: update  #update/create-drop
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: false
+        show_sql: false
+    defer-datasource-initialization: true
